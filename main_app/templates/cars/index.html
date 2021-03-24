@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>car collector</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.css">
+    </head>
+    <body>
+        <h1>the car collector's cars</h1>
+        <hr />
+        <ul>
+            {% for car in cars %}
+                <li>Name: {{ car.name }}</li>
+                {% if car.year > 1991 %}
+                    <li>Year: {{ car.year }}</li>
+                {% else %}
+                    <li>Year: {{ car.year }} a classic</li>
+                {% endif %}
+                <li>Make and model: {{ car.make}}, {{ car.model}}</li>
+                <li>Description: {{ car.description}}</li>
+                <hr />
+            {% endfor %}
+        </ul>
+        <footer>All Rights Reserved, Leo V. 2021</footer>
+    </body>
+</html>
